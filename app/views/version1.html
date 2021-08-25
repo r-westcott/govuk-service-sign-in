@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Start page example
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {% if serviceName %} {{ serviceName }} {% endif %}
+      </h1>
+
+      <p>Choose the government service you want to sign in to.</p>
+
+      <div class="govuk-inset-text">
+  At the moment, there are separate accounts for signing in to different government services.
+</div>
+
+      <p>These are the most viewed government services on GOV.UK:</p>
+
+<div class="govuk-service-list">
+
+  <div class="govuk-service-list-item">
+    <div>
+    <img class="img-1" src="/public/images/icon-arrow.svg">
+      <div class="govuk-service-list-text">
+        <a href="#" class="govuk-link govuk-link--no-visited-state govuk-heading-m">Universal Credit</a>
+        <p>See and update your Universal credit claim.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-service-list-item">
+    <div>
+    <img class="img-1" src="/public/images/icon-arrow.svg">
+      <div class="govuk-service-list-text">
+        <a href="#" class="govuk-link govuk-link--no-visited-state govuk-heading-m">HMRC services</a>
+        <p>Sign in to HMRC services using Government Gateway or GOV.UK Verify.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-service-list-item">
+    <div>
+    <img class="img-1" src="/public/images/icon-arrow.svg">
+      <div class="govuk-service-list-text">
+        <a href="#" class="govuk-link govuk-link--no-visited-state govuk-heading-m">Check your State Pension forecast</a>
+        <p>Find out how much State Pension you could get and when.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-service-list-item">
+    <div>
+    <img class="img-1" src="/public/images/icon-arrow.svg">
+      <div class="govuk-service-list-text">
+        <a href="#" class="govuk-link govuk-link--no-visited-state govuk-heading-m">Manage your student loan balance</a>
+        <p>See your student loan balance and manage your repayments.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-service-list-item govuk-service-list-item">
+    <div>
+    <img class="img-1" src="/public/images/icon-arrow.svg">
+      <div class="govuk-service-list-text">
+        <a href="#" class="govuk-link govuk-link--no-visited-state govuk-heading-m">Make or update a rural payments claim</a>
+        <p>Apply for rural grants and payments.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-service-list-item govuk-service-list-item-last">
+    <div>
+    <img class="img-1" src="/public/images/icon-arrow.svg">
+      <div class="govuk-service-list-text">
+        <a href="#" class="govuk-link govuk-link--no-visited-state govuk-heading-m">Manage your GOV.UK emails</a>
+        <p>Manage the emails you get about GOV.UK pages you’re interested in.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+      <h2 class="govuk-heading-m">If the service you’re looking for is not listed</h2>
+
+      <p>If you’re looking for a different service, you can search for it.</p>
+
+      <div class="govuk-input-container">
+        <img class="img-2" src="/public/images/icon-search.svg">
+        <input class="govuk-input" id="event-name" name="event-name" type="text">
+      </div>
+      <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Search
+</button>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items govuk-!-display-none" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+{% endblock %}
