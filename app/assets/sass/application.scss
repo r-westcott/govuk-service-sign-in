@@ -63,3 +63,10 @@ $govuk-assets-path: '/govuk/assets/';
 .govuk-service-list-item-first {
   border-top: 0px;
 }
+
+.govuk-input {
+  padding-left: 30px;
+}
+.govuk-input:focus {
+  padding-left: 30px;
+}

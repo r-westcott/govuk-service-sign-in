@@ -37,6 +37,31 @@
 
 <div class="govuk-service-list">
 
+{% macro service(name, text, url, last="") %}
+  <div class="govuk-service-list-item {% if last %}govuk-service-list-item-last{% endif %}">
+    <div>
+    <img class="img-1" src="/public/images/icon-arrow.svg">
+      <div class="govuk-service-list-text">
+        <a href="{{url}}" class="govuk-link govuk-link--no-visited-state govuk-heading-m">{{name}}</a>
+        <p>{{text}}</p>
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+{{service(name='Universal Credit', text='See and update your Universal credit claim.', url='https://www.gov.uk/sign-in-universal-credit')}}
+
+{{service(name='HMRC services', text='Sign in to HMRC services using Government Gateway or GOV.UK Verify.', url='https://www.gov.uk/log-in-register-hmrc-online-services')}}
+
+{{service(name='Check your State Pension forecast', text='Find out how much State Pension you could get and when.', url='https://www.gov.uk/check-state-pension')}}
+
+{{service(name='Manage your student loan balance', text='See your student loan balance and manage your repayments.', url='https://www.gov.uk/sign-in-to-manage-your-student-loan-balance')}}
+
+{{service(name='Make or update a rural payments claim', text='Apply for rural grants and payments.', url='https://www.gov.uk/claim-rural-payments')}}
+
+{{service(name='Manage your GOV.UK emails', text='Manage the emails you get about GOV.UK pages you’re interested in.', url='#', last=true)}}
+
+<!--
   <div class="govuk-service-list-item">
     <div>
     <img class="img-1" src="/public/images/icon-arrow.svg">
@@ -96,49 +121,53 @@
       </div>
     </div>
   </div>
+-->
 
 </div>
       <h2 class="govuk-heading-m">If the service you’re looking for is not listed</h2>
-
       <p>If you’re looking for a different service, you can search for it.</p>
-
+    <form class="form" action="#search-results" method="post">
       <div class="govuk-input-container">
         <img class="img-2" src="/public/images/icon-search.svg">
-        <input class="govuk-input govuk-!-width-two-thirds" id="event-name" name="event-name" type="text">
+        <input class="govuk-input govuk-!-width-two-thirds" id="event-name" name="event-name" type="text" value="{{ data['event-name'] }}">
       </div>
-      <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-  Search
-</button>
+      {{ govukButton({
+        text: "Search",
+        classes: "govuk-button--secondary"
+      }) }}
+    </form>
 
-    </div>
+<!-- ORIGINAL
+    {% if data['event-name'] %}
+      <div id="search-results" class="govuk-inset-text">
+        <h3 class="govuk-heading-s">1 result found</h3>
+        <a href="https://www.gov.uk/request-copy-criminal-record" class="govuk-link govuk-link--no-visited-state govuk-heading-s">Request a basic DBS check</a>
+        <p>How to apply for a basic DBS check to get a copy of your criminal record, and what you must provide. It costs £23.</p>
+      </div>
+    {% endif %}
+-->
 
-    <div class="govuk-grid-column-one-third">
+{% macro result(name, text, url) %}
+<a href="{{ url }}" class="govuk-link govuk-link--no-visited-state govuk-heading-s">{{ name }}</a>
+<p>{{ text }}</p>
+{% endmacro %}
 
-      <aside class="app-related-items govuk-!-display-none" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
-          Subsection
-        </h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-!-font-size-16">
-            <li>
-              <a href="#">
-                Related link
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Related link
-              </a>
-            </li>
-            <li>
-              <a href="#" class="govuk-!-font-weight-bold">
-                More <span class="govuk-visually-hidden">in Subsection</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
+{% if data['event-name'] %}
+  <div id="search-results" class="govuk-inset-text">
+    {{result(name='Request a basic DBS check', text='How to apply for a basic DBS check to get a copy of your criminal record and what you must provide. It costs £23.', url='https://www.gov.uk/request-copy-criminal-record')}}
+    {{result(name='Disclosure and Barring Service', text='The home of Disclosure and Barring Service on GOV.UK. The Disclosure and Barring Service helps employers make safer recruitment…', url='https://www.gov.uk/request-copy-criminal-record')}}
+    {{result(name='Update Service and other DBS online services', text='DBS offers a number of online services, including the Update Service, DBS online accounts and online tracking.', url='https://www.gov.uk/request-copy-criminal-record')}}
+    {{result(name='COVID-19: Free-of-charge DBS applications and fast-track Barred List check service', text='Guidance around free-of-charge applications and our new fast-track Barred List check service, in response to COVID-19.', url='https://www.gov.uk/request-copy-criminal-record')}}
+    {{result(name='Find out which DBS check is right for your employee', text='Find out what level of Disclosure and Barring Service (DBS) check you can get for an employee you’re recruiting. Formerly a Criminal Records Bureau (CRB) check.', url='https://www.gov.uk/request-copy-criminal-record')}}
+  </div>
+  <h3 class="govuk-heading-s">5 of 24,500 results</h3>
+  <a href="https://www.gov.uk/search/all?keywords=Apply%20for%20DBS%20check&content_purpose_supergroup%5B%5D=services&order=relevance" class="govuk-link govuk-link--no-visited-state govuk-heading-s">See all results</a>
+{% endif %}
 
-    </div>
+
+
+
+
+
   </div>
 {% endblock %}
