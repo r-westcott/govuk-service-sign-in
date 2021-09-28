@@ -22,9 +22,15 @@ $govuk-assets-path: '/govuk/assets/';
 
 .govuk-service-list-item {
   border-top: 1px solid #b1b4b6;
-  padding-top: 30px;
-  padding-bottom: 10px;
+  padding-top: 20px;
+  margin-bottom: 20px;
 }
+
+.govuk-service-list-item .govuk-heading-m {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
 
 .govuk-service-list-item-last {
   border-bottom: 1px solid #b1b4b6;
@@ -33,10 +39,6 @@ $govuk-assets-path: '/govuk/assets/';
 .img-1{
   position:absolute;
   padding-top:5px;
-}
-
-.govuk-service-list-text{
-  padding-left:40px;
 }
 
 .img-2{
@@ -69,4 +71,27 @@ $govuk-assets-path: '/govuk/assets/';
 }
 .govuk-input:focus {
   padding-left: 30px;
+}
+
+.search-result {
+  border-top: 1px solid #b1b4b6;
+  padding-top: 20px;
+}
+
+.search-result-last {
+  border-bottom: 1px solid #b1b4b6;
+  padding-bottom: 5px;
+}
+
+.chevron {
+  float: right;
+  font-size: 35px;
+  color: govuk-colour("black");
+  margin-left: -30px;
+  padding: 0 6px 0 0;
+}
+
+.service-card-text {
+  font-size: 18px;
+  float: left;
 }
